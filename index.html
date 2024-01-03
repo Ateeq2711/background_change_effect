@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>BackGround Change Effect</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="imb-box">
+        <img src="Images/transparent.png" alt="" width="100%" />
+
+        <div class="img-wrap">
+          <img id="originalImg" src="Images/original.jpg" alt="" />
+        </div>
+        <span id="line">
+          <img class="arrow" src="Images/arrow.png" alt="" />
+        </span>
+      </div>
+    </div>
+
+    <script>
+      var imgBox = document.querySelector(".imb-box");
+      var imgWrap = document.querySelector(".img-wrap");
+      var originalImg = document.getElementById("originalImg");
+      var line = document.getElementById("line");
+
+      originalImg.style.width = imgBox.offsetWidth + "px";
+      var lefSpace = imgBox.offsetLeft;
+
+      imgBox.onmousemove = function (e) {
+        var boxWidth = e.pageX - lefSpace + "px";
+        imgWrap.style.width = boxWidth;
+        line.style.left = boxWidth;
+      };
+    </script>
+  </body>
+</html>
